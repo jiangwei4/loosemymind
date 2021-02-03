@@ -33,5 +33,8 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+         - { path: ^/new_escape_game, roles: ROLE_ADMIN }
+         - { path: ^/listeescapegameall, roles: ROLE_ADMIN }
+         - { path: ^/listepartieAll, roles: ROLE_ADMIN }
+         - { path: ^/update_user, roles: ROLE_USER }
+         - { path: ^/creerpartie, roles: ROLE_USER }
