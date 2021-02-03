@@ -50,6 +50,7 @@ class SignUpType extends AbstractType
                 'type'=> PasswordType::class,
                 'first_options'=>array('label'=>'mot de passe'),
                 'second_options' => array('label'=>'Répéter le mot de passe'),
+                'required'=>true
             ))
             ->add('submit',SubmitType::class)
         ;

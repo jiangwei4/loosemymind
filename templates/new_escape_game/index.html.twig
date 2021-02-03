@@ -10,8 +10,36 @@
 
 
 <div class="example-wrapper">
-<br><br><br><br>
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{{ form_start(form)}}
+        <label class="w3-text"><b> {{ form_label(form.nom) }}</b></label>
+
+                {{ form_widget(form.nom)}}
+                {{ form_errors(form.nom) }}
+                {{ form_help(form.nom) }}<br>
+<label class="w3-text"><b> {{ form_label(form.description) }}</b></label>
+                {{ form_widget(form.description)}}
+                {{ form_errors(form.description) }}
+                {{ form_help(form.description) }}<br>
+<label class="w3-text"><b> {{ form_label(form.jeux) }}</b></label>
+                {{ form_widget(form.jeux)}}
+                {{ form_errors(form.jeux) }}
+                {{ form_help(form.jeux) }}<br>
+<label class="w3-text"><b> {{ form_label(form.prix) }}</b></label>
+                {{ form_widget(form.prix)}}
+                {{ form_errors(form.prix) }}
+                {{ form_help(form.prix) }}<br>
+<label class="w3-text"><b> {{ form_label(form.dureeEnMinute) }}</b></label>
+                {{ form_widget(form.dureeEnMinute)}}
+                {{ form_errors(form.dureeEnMinute) }}
+                {{ form_help(form.dureeEnMinute) }}<br>
+<label class="w3-text"><b> {{ form_label(form.photo) }}</b></label>
+                {{ form_widget(form.photo)}}
+                {{ form_errors(form.photo) }}
+                {{ form_help(form.photo) }}<br>
+
+                {{ form_row(form.submit) }}
+
+                {{ form_end(form) }}
 
 </div>
 

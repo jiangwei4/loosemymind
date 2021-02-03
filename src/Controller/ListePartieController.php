@@ -29,7 +29,7 @@ class ListePartieController extends AbstractController
     {
         
         $listePartie = $partieRepository->findAll();
-        return $this->render('liste_partie/indexAll.html.twig', [
+        return $this->render('liste_partie_All/index.html.twig', [
             'controller_name' => 'ListePartieController',
             'listePartie' => $listePartie,
         ]);

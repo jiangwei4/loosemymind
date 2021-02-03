@@ -13,12 +13,24 @@ use Symfony\Component\HttpFoundation\Request;
 class ListeEscapeGameController extends AbstractController
 {
     /**
-     * @Route("/listeescapegameall/", name="listeescapegameall")
+     * @Route("/listeescapegameall", name="listeescapegameall")
      */
-    public function index(EntityManagerInterface $entityManager, EscapeGameRepository $escapeGameRepository): Response
+    public function indexAll(EscapeGameRepository $escapeGameRepository): Response
     {
         $listeEscapeGame = $escapeGameRepository->findAll();
         return $this->render('liste_escape_game_All/index.html.twig', [
+            'controller_name' => 'ListeEscapeGameController',
+            'listeEscapeGame' => $listeEscapeGame,
+        ]);
+    }
+
+    /**
+     * @Route("/listeescapegame", name="listeescapegame")
+     */
+    public function index(EscapeGameRepository $escapeGameRepository): Response
+    {
+        $listeEscapeGame = $escapeGameRepository->findAll();
+        return $this->render('liste_escape_game/index.html.twig', [
             'controller_name' => 'ListeEscapeGameController',
             'listeEscapeGame' => $listeEscapeGame,
         ]);

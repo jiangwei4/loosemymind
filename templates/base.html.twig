@@ -23,12 +23,13 @@
                 <a href="/update_user" class="w3-bar-item w3-button">Edit Profil</a>
                 <a href="/creerpartie" class="w3-bar-item w3-button">Créer une partie</a>
                 <a href="/listepartie" class="w3-bar-item w3-button">List Partie</a>
+                <a href="/listeescapegame" class="w3-bar-item w3-button">Liste Escape Game</a>
             {% endif %}
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                  {% if is_granted('ROLE_ADMIN') %}
                      <a href="/new_escape_game" class="w3-bar-item w3-button">Ajouter un escape game</a>
-                     <a href="/listeescapegameall" class="w3-bar-item w3-button">Liste Escape Game</a>
-                     <a href="/listepartieAll" class="w3-bar-item w3-button">Liste Partie</a>
+                     <a href="/listeescapegameall" class="w3-bar-item w3-button">Liste Escape Game ALL</a>
+                     <a href="/listepartieAll" class="w3-bar-item w3-button">Liste Partie ALL</a>
                      {% endif %}
                 <a href="/logout" class="w3-bar-item w3-button">Log out</a>
             {% else %}
@@ -45,22 +46,7 @@
 
 
 
-     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <p>Bonjour: {{ app.user.prenom }} </p>
-        {% endif %}
-
-
-        <div class="w3-container">
-
-
-      {% for label, messages in app.flashes %}
-            {% for message in messages %}
-                <div class="flash-{{ label }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endfor %}
-
+    
 
     {% block body %}{% endblock %}
     {% block javascripts %}{% endblock %}

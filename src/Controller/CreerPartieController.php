@@ -40,14 +40,14 @@ class CreerPartieController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
            
             $partie = $form->getData();
-            $partie->setUsers( $user);
+            $partie->setUser( $user);
             $partie->setEscapeGame($escapeGame);
             $partie->setPositionDansLaPartie(0);
             $partie->setFini(0);
-            $formFin->get('users')->setData($this->getUser());
+            //$formFin->get('users')->setData($this->getUser());
 
                 
-            dump($partie);die();
+            //dump($partie);die();
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($partie);
             $entityManager->flush();

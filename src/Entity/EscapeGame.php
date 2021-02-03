@@ -134,49 +134,4 @@ class EscapeGame
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPartie()
-    {
-        return $this->partie;
-    }
-
-    /**
-     * @param mixed $partie
-     */
-    public function setPartie($partie): void
-    {
-        $this->partie = $partie;
-    }
-
-    /**
-     * @return Collection|Partie[]
-     */
-    public function getArticles(): Collection
-    {
-        return $this->partie;
-    }
-
-    public function addPartie(Partie $partie): self
-    {
-        if (!$this->partie->contains($partie)) {
-            $this->partie[] = $partie;
-            $partie->setEscapeGame($this);
-        }
-
-        return $this;
-    }
-    public function removePartie(Partie $partie): self
-    {
-        if ($this->partie->contains($partie)) {
-            $this->partie->removeElement($partie);
-            // set the owning side to null (unless already changed)
-            if ($partie->getEscapeGame() === $this) {
-                $partie->setEscapeGame(null);
-            }
-        }
-
-        return $this;
-    }
 }
