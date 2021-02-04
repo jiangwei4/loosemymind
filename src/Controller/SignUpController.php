@@ -26,6 +26,14 @@ class SignUpController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $user = $form->getData();
+
+            $image = $user->getPhoto();
+            $imagedata = file_get_contents($image);
+             // alternatively specify an URL, if PHP settings allow
+            $base64 = base64_encode($imagedata);
+
+            $user->setPhoto($base64);
+
             $password = $passwordEncoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
             $entityManager = $this->getDoctrine()->getManager();

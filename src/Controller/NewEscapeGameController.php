@@ -22,6 +22,14 @@ class NewEscapeGameController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $EscapeGame = $form->getData();
+
+            $image = $EscapeGame->getPhoto();
+            $imagedata = file_get_contents($image);
+             // alternatively specify an URL, if PHP settings allow
+            $base64 = base64_encode($imagedata);
+
+            $EscapeGame->setPhoto($base64);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($EscapeGame);
             $entityManager->flush();

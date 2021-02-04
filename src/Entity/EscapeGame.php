@@ -49,7 +49,13 @@ class EscapeGame
     private $dureeEnMinute;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=999999999999)
+     *   @Assert\Image(
+     *     mimeTypes={"image/jpeg", "image/png", "image/gif"},
+     *     mimeTypesMessage = "Please upload a valid Image",
+     *     maxSize="9024k"
+     * )
+     * 
      */
     private $photo;
 

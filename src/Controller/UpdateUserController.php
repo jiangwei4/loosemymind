@@ -21,10 +21,16 @@ class UpdateUserController extends AbstractController
     {
         $user = $this->getUser();
         $form = $this->createForm(UpdateUserType::class, $user);
+        
         $form->handleRequest($request);
         //dump($form);die();
         if($form->isSubmitted() && $form->isValid()){
+            $image = $user->getPhoto();
+            $imagedata = file_get_contents($image);
+             // alternatively specify an URL, if PHP settings allow
+            $base64 = base64_encode($imagedata);
 
+            $user->setPhoto($base64);
             $entityManager->flush();
             $this->addFlash('notice','les changements ont bien été éffectués');
             return $this->redirectToRoute('home');

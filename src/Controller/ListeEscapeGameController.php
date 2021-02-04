@@ -45,7 +45,17 @@ class ListeEscapeGameController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            $entityManager->persist($escapeGame);
+
+            $EscapeGame = $form->getData();
+
+            $image = $EscapeGame->getPhoto();
+            $imagedata = file_get_contents($image);
+             // alternatively specify an URL, if PHP settings allow
+            $base64 = base64_encode($imagedata);
+
+            $EscapeGame->setPhoto($base64);
+
+            $entityManager->persist($EscapeGame);
             $entityManager->flush();
             $this->addFlash('notice', 'Changement(s) effectué(s)!');
 

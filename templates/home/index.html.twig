@@ -11,6 +11,7 @@
 <div class="example-wrapper">
 
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <img src="data:image/jpeg;base64,{{tableauDeBord[1]}}" >
         <p>vous avez réalisé {{tableauDeBord[0]}} partie(s)</p>
     {% else %}
         <div class="w3-container">

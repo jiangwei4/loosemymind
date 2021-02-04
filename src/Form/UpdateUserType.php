@@ -9,25 +9,27 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UpdateUserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('photo', null, array('attr'=> array(
+        ->add('photo', FileType::class, array('attr'=> array(
             'class'=> 'text-field-9 w-input',
             'data-name'=>'Ma photo',
             'placeholder'=>'' ,
             'required'=>false
-        )))
-        ->add('nom', null, array('attr'=> array(
+        ),'data_class' => null))
+        ->add('nom', TextType::class, array('attr'=> array(
             'class'=> 'text-field-9 w-input',
             'data-name'=>'Nom',
             'placeholder'=>'' ,
             'required'=>true
         )))
-        ->add('prenom', null, array('attr'=> array(
+        ->add('prenom', TextType::class, array('attr'=> array(
             'class'=> 'text-field-9 w-input',
             'data-name'=>'Prénom',
             'placeholder'=>'' ,
