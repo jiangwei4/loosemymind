@@ -10,11 +10,15 @@
 
 <div class="example-wrapper">
 
-    <br><br>
-    <div class="w3-container">
-    <H1>MY Escape Game. </H1>
-    <p>A connected user is the only one who can see manage his/her list of contents.</p>
-    <p>The platform can be managed by an Admin to handle all users and contents of YouFlix</p>
-    </div>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <p>vous avez réalisé {{tableauDeBord[0]}} partie(s)</p>
+    {% else %}
+        <div class="w3-container">
+        <H1>MY Escape Game. </H1>
+        <p>A connected user is the only one who can see manage his/her list of contents.</p>
+        <p>The platform can be managed by an Admin to handle all users and contents of YouFlix</p>
+        </div>
+    {% endif %}
+
 </div>
 {% endblock %}
