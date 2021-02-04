@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class SignInType extends AbstractType
 {
@@ -14,7 +15,7 @@ class SignInType extends AbstractType
     {
         $builder
             ->add('mail')
-            ->add('password')
+            ->add('password', PasswordType::class, array('label' => 'Password'))
             ->add('submit',SubmitType::class)
         ;
     }
