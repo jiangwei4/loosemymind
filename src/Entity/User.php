@@ -21,8 +21,8 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=999999999999)
-     *   @Assert\Image(
+     * @ORM\Column(type="string", length=999999999999, nullable=true)
+     * @Assert\Image(
      *     mimeTypes={"image/jpeg", "image/png", "image/gif"},
      *     mimeTypesMessage = "Please upload a valid Image",
      *     maxSize="9024k"

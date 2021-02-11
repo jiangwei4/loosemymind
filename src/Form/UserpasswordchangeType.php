@@ -12,17 +12,17 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class UpdateUserType extends AbstractType
+class UserpasswordchangeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('photo', FileType::class, array('attr'=> array(
+        /*->add('photo', FileType::class, array('attr'=> array(
             'class'=> 'text-field-9 w-input',
             'data-name'=>'Ma photo',
             'placeholder'=>'' ,
             'required'=>false,
-        ),'data_class' => null))
+        )))
         ->add('nom', TextType::class, array('attr'=> array(
             'class'=> 'text-field-9 w-input',
             'data-name'=>'Nom',
@@ -42,17 +42,18 @@ class UpdateUserType extends AbstractType
             'placeholder'=>'0612345678' ,
             'required'=>true
         )))
-        /*->add('mail', null, array('attr'=> array(
+        ->add('mail', null, array('attr'=> array(
             'class'=> 'text-field-9 w-input',
             'data-name'=>'Mon email',
             'placeholder'=>'' ,
             'required'=>true
         )))*/
-        /*->add('password',RepeatedType::class,array(
+        ->add('password',RepeatedType::class,array(
             'type'=> PasswordType::class,
             'first_options'=>array('label'=>'mot de passe'),
             'second_options' => array('label'=>'Répéter le mot de passe'),
-        ))*/
+            'required'=>true
+        ))
         ->add('submit',SubmitType::class)
         ;
     }

@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\NotNull;
 
 class SignUpType extends AbstractType
 {
@@ -21,7 +22,7 @@ class SignUpType extends AbstractType
                 'class'=> 'text-field-9 w-input',
                 'data-name'=>'Ma photo',
                 'placeholder'=>'' ,
-                'required'=>false
+                'required'=>false,
             )))
             ->add('nom', TextType::class, array('attr'=> array(
                 'class'=> 'text-field-9 w-input',
