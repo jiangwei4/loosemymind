@@ -38,3 +38,5 @@ security:
          - { path: ^/listepartieAll, roles: ROLE_ADMIN }
          - { path: ^/update_user, roles: ROLE_USER }
          - { path: ^/creerpartie, roles: ROLE_USER }
+         - { path: ^/lostpassword, roles: ROLE_USER }
+         
